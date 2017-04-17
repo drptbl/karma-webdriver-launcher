@@ -1,12 +1,14 @@
-karma-webdriver-launcher
+karma-webdriverio-launcher
 ========================
 
 A plugin for Karma 0.12 to launch Remote WebDriver instances
 
+This project is forked from [karma-webdriver-launcher](https://github.com/karma-runner/karma-webdriver-launcher), and I just use [webdriverio](http://webdriver.io/) insted of wd to start browser.
+
 ## Usage
 
 ```bash
-$ npm install karma-webdriver-launcher
+$ npm install karma-webdriverio-launcher
 ```
 
 In your karma.conf.js file (e.g. using SauceLabs Connect - you need to have a scout tunnel open for this to work!):
@@ -30,7 +32,7 @@ module.exports = function(karma) {
 
       customLaunchers: {
         'IE7': {
-          base: 'WebDriver',
+          base: 'WebDriverio',
           config: webdriverConfig,
           browserName: 'internet explorer',
           platform: 'Windows XP',
@@ -54,3 +56,4 @@ module.exports = function(karma) {
 Interval in ms to do some activity to avoid killing session by timeout.
 
 If not set or set to `0` - no activity will be performed.
+

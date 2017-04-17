@@ -1,4 +1,4 @@
-var wd = require('wd');
+var webdriverio = require('webdriverio');
 var urlparse = require('url').parse;
 var urlformat = require('url').format;
 
@@ -79,7 +79,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
     log.debug('WebDriver config: ' + JSON.stringify(config));
     log.debug('Browser capabilities: ' + JSON.stringify(spec));
 
-    self.driver = wd.remote(config, 'promiseChain');
+    self.driver = webdriverio.remote(config, 'promiseChain');
     self.browser = self.driver.init(spec);
 
     var interval = args.pseudoActivityInterval && setInterval(function() {
@@ -88,16 +88,19 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
     }, args.pseudoActivityInterval);
 
     self.browser
-        .get(url)
-        .done();
+        .url(url);
 
     self._process = {
       kill: function() {
         interval && clearInterval(interval);
-        self.driver.quit(function() {
-          log.info('Killed ' + spec.testName + '.');
-          self._onProcessExit(self.error ? -1 : 0, self.error);
-        });
+        var exitProcess = function() {
+           clearTimeout(timer);
+           log.info('Killed ' + spec.testName + '.');
+           self._onProcessExit(self.error ? -1 : 0, self.error);
+        },
+        timer;
+        self.browser.end().then(exitProcess);
+        setTimeout(exitProcess, 5000);
       }
     };
   };
@@ -110,9 +113,9 @@ WebDriverInstance.prototype = {
   name: 'WebDriver',
 
   DEFAULT_CMD: {
-    linux: require('wd').path,
-    darwin: require('wd').path,
-    win32: require('wd').path
+    linux: require('webdriverio').path,
+    darwin: require('webdriverio').path,
+    win32: require('webdriverio').path
   },
   ENV_CMD: 'WEBDRIVER_BIN'
 };
@@ -121,5 +124,5 @@ WebDriverInstance.$inject = ['baseBrowserDecorator', 'args', 'logger'];
 
 // PUBLISH DI MODULE
 module.exports = {
-  'launcher:WebDriver': ['type', WebDriverInstance]
+  'launcher:WebDriverio': ['type', WebDriverInstance]
 };

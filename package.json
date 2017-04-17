@@ -1,48 +1,49 @@
 {
-  "name": "karma-webdriver-launcher",
-  "version": "1.0.5",
-  "description": "A Karma plugin. Launcher for Remote WebDriver instances.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/karma-runner/karma-webdriver-launcher.git"
-  },
-  "keywords": [
-    "karma-plugin",
-    "launcher",
-    "WebDriver"
-  ],
-  "author": "Alan Parkinson <alan.parkinson@hindsightsoftware.co.uk>",
-  "contributors": [
-    "Mark Ethan Trostler <mark@zzo.com>",
-    "Alan Parkinson <alan.parkson@hindsightsoftware.co.uk>",
-    "Matthew Smith <mtscout6@gmail.com>",
-    "Mark Trostler <mark@zzo.com>",
-    "Anton Usmansky <cody0@yandex-team.ru>",
-    "Jack Bastow <jack.bastow@hindsightsoftware.co.uk>",
-    "Philipp Zins <philipp.zins@mercateo.com>",
-    "charliedowler <charlie.dowler@hindsightsoftware.co.uk>",
-    "Dr. Kibitz <info@drkibitz.com>",
-    "Charlie Dowler <charlie.dowler@hindsightsoftware.co.uk>",
-    "Sergey Belov <peimei@ya.ru>",
-    "Vladimir Alaev <scff@yandex-team.ru>",
-    "Vojta Jina <vojta.jina@gmail.com>",
-    "j0tunn <anton.usmansky@gmail.com>",
-    "Jaroslav Hejral <jaroslav.hejral@hp.com>",
-    "persidskiy <persidskiy@yandex-team.ru>",
-    "Enrique Paredes <enrique@iknite.com>"
-  ],
-  "dependencies": {
-    "wd": "^1.0.0"
-  },
-  "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-bump": "~0.8.0",
-    "grunt-npm": "~0.0.2",
-    "grunt-auto-release": "~0.0.7"
-  },
-  "license": "MIT"
+    "name": "karma-webdriverio-launcher",
+    "version": "1.0.5",
+    "description": "A Karma plugin. Launcher for Remote WebDriver instances using webdriverio.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:gogoyqj/karma-webdriver-launcher.git"
+    },
+    "keywords": [
+        "karma-plugin",
+        "launcher",
+        "WebDriver",
+        "webdriverio"
+    ],
+    "author": "For From Alan Parkinson <alan.parkinson@hindsightsoftware.co.uk>",
+    "contributors": [
+        "Mark Ethan Trostler <mark@zzo.com>",
+        "Alan Parkinson <alan.parkson@hindsightsoftware.co.uk>",
+        "Matthew Smith <mtscout6@gmail.com>",
+        "Mark Trostler <mark@zzo.com>",
+        "Anton Usmansky <cody0@yandex-team.ru>",
+        "Jack Bastow <jack.bastow@hindsightsoftware.co.uk>",
+        "Philipp Zins <philipp.zins@mercateo.com>",
+        "charliedowler <charlie.dowler@hindsightsoftware.co.uk>",
+        "Dr. Kibitz <info@drkibitz.com>",
+        "Charlie Dowler <charlie.dowler@hindsightsoftware.co.uk>",
+        "Sergey Belov <peimei@ya.ru>",
+        "Vladimir Alaev <scff@yandex-team.ru>",
+        "Vojta Jina <vojta.jina@gmail.com>",
+        "j0tunn <anton.usmansky@gmail.com>",
+        "Jaroslav Hejral <jaroslav.hejral@hp.com>",
+        "persidskiy <persidskiy@yandex-team.ru>",
+        "Enrique Paredes <enrique@iknite.com>"
+    ],
+    "dependencies": {
+        "webdriverio":"^4.6.2"
+    },
+    "devDependencies": {
+        "grunt": "~1.0.1",
+        "grunt-bump": "~0.8.0",
+        "grunt-npm": "~0.0.2",
+        "grunt-auto-release": "~0.0.7"
+    },
+    "license": "MIT"
 }
