@@ -8,7 +8,8 @@ This project is forked from [karma-webdriver-launcher](https://github.com/karma-
 ## Usage
 
 ```bash
-$ npm install karma-webdriverio-launcher
+$ //npm install karma-webdriverio-launcher
+$ npm install git+ssh://git@github.com:gogoyqj/karma-webdriver-launcher.git
 ```
 
 In your karma.conf.js file (e.g. using SauceLabs Connect - you need to have a scout tunnel open for this to work!):
