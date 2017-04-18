@@ -3,7 +3,7 @@ var urlparse = require('url').parse;
 var urlformat = require('url').format;
 
 var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
-  var log = logger.create('WebDriver');
+  var log = logger.create('WebDriverio');
 
   var config = args.config || {
     hostname: '127.0.0.1',
@@ -110,7 +110,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
 };
 
 WebDriverInstance.prototype = {
-  name: 'WebDriver',
+  name: 'WebDriverio',
 
   DEFAULT_CMD: {
     linux: require('webdriverio').path,
