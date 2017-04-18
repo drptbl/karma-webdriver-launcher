@@ -100,7 +100,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
         },
         timer;
         self.browser.end().then(exitProcess);
-        setTimeout(exitProcess, 5000);
+        setTimeout(exitProcess, 500);
       }
     };
   };
