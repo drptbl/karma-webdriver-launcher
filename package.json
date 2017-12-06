@@ -37,7 +37,8 @@
         "Enrique Paredes <enrique@iknite.com>"
     ],
     "dependencies": {
-        "webdriverio":"^4.6.2"
+        "webdriverio": "4.9.11",
+        "ip": "1.1.5"
     },
     "devDependencies": {
         "grunt": "~1.0.1",
