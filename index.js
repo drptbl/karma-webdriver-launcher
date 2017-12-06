@@ -47,6 +47,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
     }
     log.debug("Setting value for: " + key + " in spec - which is equal to: " + value);
     spec[key] = value;
+    log.debug("New spec is: " + JSON.stringify(spec));
   });
 
   if (!spec.browserName) {
