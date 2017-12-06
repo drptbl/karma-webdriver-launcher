@@ -4,12 +4,15 @@ var urlformat = require('url').format;
 
 var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
   var log = logger.create('WebDriverio');
+  var os = require('os');
+  var ip = require('ip');
+  var self = this;
 
   var config = args.config || {
     hostname: '127.0.0.1',
-    port: 4444
+    port: 4444,
+    remoteHost: false
   };
-  var self = this;
 
   // Intialize with default values
   var spec = {
@@ -31,6 +34,9 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
     case 'tags':
       break;
     case 'version':
+      if (!isNaN(value)) {
+        value = value + ''; // for use Selenium Grid 3.x.x, this field must be string.
+      }
       break;
     case 'config':
       // ignore
@@ -69,12 +75,19 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
   }
 
   this._start = function (url) {
-    var urlObj = urlparse(url, true);
+    var urlObj = urlparse(url, true),
+        ipAddr;
 
     handleXUaCompatible(spec, urlObj);
 
     delete urlObj.search; //url.format does not want search attribute
     url = urlformat(urlObj);
+
+    if (config.remoteHost) {
+      ipAddr = ip.address();
+      url = url.replace('localhost', ipAddr);
+      log.debug('Remote host feature worked: ' + ipAddr);
+    }
 
     log.debug('WebDriver config: ' + JSON.stringify(config));
     log.debug('Browser capabilities: ' + JSON.stringify(spec));
