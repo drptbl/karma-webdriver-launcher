@@ -42,6 +42,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
       // ignore
       return;
     }
+    log.debug("Setting value for: " + spec[key] + " - which is equal to: " + value);
     spec[key] = value;
   });
 
