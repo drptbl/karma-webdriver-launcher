@@ -38,6 +38,8 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
         value = value + ''; // for use Selenium Grid 3.x.x, this field must be string.
       }
       break;
+    case 'base':
+      return;
     case 'config':
       // ignore
       return;
