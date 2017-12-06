@@ -23,10 +23,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
   };
 
   Object.keys(args).forEach(function (key) {
-    log.debug('Key value is: ' + key);
     var value = args[key];
-    log.debug('Value is: ' + value);
-    log.debug("Spec is: " + JSON.stringify(spec));
     switch (key) {
     case 'browserName':
       break;
@@ -45,9 +42,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
       // ignore
       return;
     }
-    log.debug("Setting value for: " + key + " in spec - which is equal to: " + value);
     spec[key] = value;
-    log.debug("New spec is: " + JSON.stringify(spec));
   });
 
   if (!spec.browserName) {
