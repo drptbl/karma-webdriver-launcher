@@ -2,6 +2,14 @@ var webdriverio = require('webdriverio');
 var urlparse = require('url').parse;
 var urlformat = require('url').format;
 
+// Intialize with default values
+var spec = {
+  platform: 'ANY',
+  testName: 'Karma test',
+  tags: [],
+  version: ''
+};
+
 var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
   var log = logger.create('WebDriverio');
   var os = require('os');
@@ -12,14 +20,6 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
     hostname: '127.0.0.1',
     port: 4444,
     remoteHost: false
-  };
-
-  // Intialize with default values
-  var spec = {
-    platform: 'ANY',
-    testName: 'Karma test',
-    tags: [],
-    version: ''
   };
 
   Object.keys(args).forEach(function (key) {
